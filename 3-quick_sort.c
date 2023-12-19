@@ -1,16 +1,15 @@
 #include "sort.h"
-/**NEEDS EDITING*/
-void swap_ints(int *a, int *b);
-int lomuto_partition(int *array, size_t size, int left, int right);
+void swap_ele(int *a, int *b);
+int lomuto_part(int *array, size_t size, int left, int right);
 void lomuto_sort(int *array, size_t size, int left, int right);
 void quick_sort(int *array, size_t size);
 
 /**
- * swap_ints - Swap two integers in an array
- * @a: first integer to swap
- * @b: second integer to swap
+ * swap_ele - Swap two integers in array
+ * @a: first int
+ * @b: second int
  */
-void swap_ints(int *a, int *b)
+void swap_ele(int *a, int *b)
 {
 	int tmp;
 
@@ -20,39 +19,37 @@ void swap_ints(int *a, int *b)
 }
 
 /**
- * lomuto_partition - Order a subset of an array of integers according to
- *                    the lomuto partition scheme (last element as pivot).
+ * lomuto_part - Orders ubset of int array according to lomuto partition scheme 
+ * (last element as pivot).
  * @array: array to sort
  * @size: size the array
  * @left: starting to order
  * @right: ending index to order
  * Return: final partition index
  */
-int lomuto_partition(int *array, size_t size, int left, int right)
+int lomuto_part(int *array, size_t size, int left, int right)
 {
-	int *pivot, above, below;
+	int *pivot, up, down;
 
 	pivot = array + right;
-	for (above = below = left; below < right; below++)
+	for (up = down = left; down < right; down++)
 	{
-		if (array[below] < *pivot)
+		if (array[down] < *pivot)
 		{
-			if (above < below)
+			if (up < down)
 			{
-				swap_ints(array + below, array + above);
+				swap_ele(array + down, array + up);
 				print_array(array, size);
 			}
-			above++;
+			up++;
 		}
 	}
-
-	if (array[above] > *pivot)
+	if (array[up] > *pivot)
 	{
-		swap_ints(array + above, pivot);
+		swap_ele(array + up, pivot);
 		print_array(array, size);
 	}
-
-	return (above);
+	return (up);
 }
 
 /**
@@ -68,21 +65,20 @@ void lomuto_sort(int *array, size_t size, int left, int right)
 
 	if (right - left > 0)
 	{
-		part = lomuto_partition(array, size, left, right);
+		part = lomuto_part(array, size, left, right);
 		lomuto_sort(array, size, left, part - 1);
 		lomuto_sort(array, size, part + 1, right);
 	}
 }
 
 /**
- * quick_sort - Sort an array using quicksort
- * @array: array to sorted
+ * quick_sort - Sort array using quicksort
+ * @array: array to sort
  * @size: size of array
  */
 void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
-
 	lomuto_sort(array, size, 0, size - 1);
 }
