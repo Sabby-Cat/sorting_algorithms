@@ -53,7 +53,7 @@ void swap_backward(listint_t **list, listint_t **tail, listint_t **mixer)
 }
 
 /**
- * cocktail_sort_list - Sort(ascending) doubly-linked list of ints using cocktail mixer 
+ * cocktail_sort_list - Sort(ascending) d-l list of ints using cocktail mixer
  * @list: pointer to head of doubly-linked list
  */
 void cocktail_sort_list(listint_t **list)

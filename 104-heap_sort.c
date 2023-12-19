@@ -59,6 +59,6 @@ void heap_sort(int *array, size_t size)
 	{
 		swap_ele(array, array + i);
 		print_array(array, size);
-		make_heap(array, size, i, 0); 
+		make_heap(array, size, i, 0);
 	}
 }

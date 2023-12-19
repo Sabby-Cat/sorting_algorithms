@@ -19,7 +19,7 @@ void swap_ele(int *a, int *b)
 }
 
 /**
- * lomuto_part - Orders ubset of int array according to lomuto partition scheme 
+ * lomuto_part - Orders ubset of int array according to lomuto partition scheme
  * (last element as pivot).
  * @array: array to sort
  * @size: size the array

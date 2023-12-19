@@ -21,7 +21,7 @@ int get_max(int *array, int size)
 }
 
 /**
- * radix_count - Sort(ascending) significant digits of array using counting sort
+ * radix_count - Sort(ascend) significant digits of array using counting sort
  * @array: array of ints
  * @size: size of array
  * @dig: significant digit to sort on

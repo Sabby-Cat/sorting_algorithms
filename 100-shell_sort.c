@@ -14,7 +14,7 @@ void swap_ele(int *a, int *b)
 }
 
 /**
- * shell_sort - Sort array of ints in ascending order using shell sort 
+ * shell_sort - Sort array of ints in ascending order using shell sort
  * @array: array of ints
  * @size: size of array
  */
